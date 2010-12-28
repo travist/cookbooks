@@ -61,7 +61,8 @@
       "php::pear": "Install the php-pear package",
       "php::module_pgsql": "Install the php5-pgsql package",
       "php::module_xmlrpc": "Install the php5-xmlrpc package",
-      "php::module_xdebug": "Install the php5-xdebug package"
+      "php::module_xdebug": "Install the php5-xdebug package",
+      "php::module_xdebug": "Install the imagemagick package"
     },
     "conflicting": {
     }

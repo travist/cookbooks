@@ -2,12 +2,24 @@
 ; XDebug ;
 ;;;;;;;;;;
 
-zend_extension=/usr/lib/php5/20060613/xdebug.so
-xdebug.remote_enable=On
-xdebug.remote_handler=dbgp
-xdebug.remote_mode=req
-xdebug.remote_host=192.168.56.1
-xdebug.remote_port=9000
+zend_extension= <%= %x[locate xdebug.so] %>
+
+<% if node[:xdebug][:remote_enable] -%>
+xdebug.remote_enable = node[:xdebug][:remote_enable]
+<% end -%>
+<% if node[:xdebug][:remote_handler] -%>
+xdebug.remote_handler = node[:xdebug][:remote_handler]
+<% end -%>
+<% if node[:xdebug][:remote_mode] -%>
+xdebug.remote_mode = node[:xdebug][:remote_mode]
+<% end -%>
+<% if node[:xdebug][:remote_host] -%>
+xdebug.remote_host = node[:xdebug][:remote_host]
+<% end -%>
+<% if node[:xdebug][:remote_port] -%>
+xdebug.remote_port = node[:xdebug][:remote_port]
+<% end -%>
+
 
 [ZendModules]
 Xdebug

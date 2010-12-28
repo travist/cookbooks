@@ -37,11 +37,13 @@ default[:php5][:output_buffering]                           = "Off"
 default[:php5][:serialize_precision]                        = "100"
 
 #; Maximum amount of memory a script may consume (16MB)
-default[:php5][:resource_limits][:memory_limit]             = "196M"
+default[:php5][:resource_limits][:memory_limit]             = "32M"
+#; Maximum amount of time each script may spend parsing request data
+default[:php5][:resource_limits][:max_input_time]           = "60"
 
 #; Maximum execution time of each script, in seconds
 default[:php5][:resource_limits][:max_execution_time]       = "30"
-default[:php5][:error_handling][:error_reporting]           = "ALL"
+default[:php5][:error_handling][:error_reporting]           = "E_ALL & E_STRICT"
 
 =begin
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

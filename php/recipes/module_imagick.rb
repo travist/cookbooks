@@ -1,7 +1,7 @@
 #
 # Author::  Dustin Currie (<dustin@onlinedesert.com.com>)
 # Cookbook Name:: php
-# Recipe:: module_gd
+# Recipe:: module_imagick
 #
 # Copyright 2010, Dustin Currie
 #
@@ -17,22 +17,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include_recipe "php::php5"
 
 pack = value_for_platform(
   [ "centos", "redhat", "fedora", "suse" ] => {
-    "default" => "php-xdebug"
+    "default" => "php-imagick"
   },
-  "default" => "php5-xdebug"
+  "default" => "php5-imagick"
 )
-if platform?("ubuntu") or platform?("debian")
-  template "/etc/php5/apache2/conf.d/xdebug.ini" do
-    source "xdebug.ini.erb"
-    owner "root"
-    group "root"
-    mode 0644
-  end
-  package pack do
-    action :upgrade
-  end
+
+package pack do
+  action :upgrade
 end
