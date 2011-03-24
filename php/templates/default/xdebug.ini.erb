@@ -2,7 +2,7 @@
 ; XDebug ;
 ;;;;;;;;;;
 
-zend_extension= <%= %x[locate xdebug.so] %>
+zend_extension=<%= %x[find / -name 'xdebug.so' 2> /dev/null] %>
 
 <% if node[:xdebug][:remote_enable] -%>
 xdebug.remote_enable = node[:xdebug][:remote_enable]
